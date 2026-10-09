@@ -21,8 +21,9 @@ jobs:
         run: core test
 
       - name: Build the smoke example
-        run: core build
-        working-directory: examples/smoke
+        run: |
+          cd examples/smoke
+          core build
 
       # Live DNS lookup against the real network. Allowed to fail: CI
       # egress rules vary and this step is a smoke check, not a gate.
