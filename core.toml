@@ -1,0 +1,5 @@
+# Core project manifest - see docs/packages/manifest.md
+[package]
+name = "core-dns"
+version = "0.1.0"
+core-version = ">=0.1.0"
