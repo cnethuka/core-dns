@@ -20,11 +20,6 @@ func main() {
     // one trailing dot is fine
     assert(dnspkt.encode_name(buf, 12, "www.example.com.") == 29, "trailing dot")
 
-    // bad names get rejected
-    assert(dnspkt.encode_name(buf, 12, "") == -1, "empty name")
-    assert(dnspkt.encode_name(buf, 12, ".") == -1, "root only")
-    assert(dnspkt.encode_name(buf, 12, "a..b") == -1, "empty label")
-
     // read_name roundtrip
     nr = dnspkt.read_name(buf, 12, 29)
     assert(nr.next == 29, "read_name next")
@@ -41,6 +36,12 @@ func main() {
     nr2 = dnspkt.read_name(buf, 100, 200)
     assert(nr2.next == 107, "compression next")
     assert(str_eq(nr2.name, "mail.example.com"), "compression value")
+
+    // bad names get rejected (note: these scribble on buf, so they run
+    // after anything that still reads the encoded name)
+    assert(dnspkt.encode_name(buf, 12, "") == -1, "empty name")
+    assert(dnspkt.encode_name(buf, 12, ".") == -1, "root only")
+    assert(dnspkt.encode_name(buf, 12, "a..b") == -1, "empty label")
 
     // build_query header layout
     qlen = dnspkt.build_query(buf, 0x1234, "example.com", dnspkt.TYPE_A)

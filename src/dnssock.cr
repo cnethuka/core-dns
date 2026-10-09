@@ -48,7 +48,9 @@ pub func udp_exchange(ip_be: u32, port: u16, qbuf: ptr<u8>, qlen: usize, rbuf: p
         close(fd)
         return -1
     }
-    n = recvfrom(fd, rbuf, rcap, 0, null, null)
+    noaddr: ptr<u8> = null
+    noaddrlen: ptr<u32> = null
+    n = recvfrom(fd, rbuf, rcap, 0, noaddr, noaddrlen)
     close(fd)
     if n < 0 { return -1 }
     return n
