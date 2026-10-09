@@ -1,1 +1,3 @@
 *.coreobj.o
+examples/smoke/core.lock
+examples/smoke/smoke

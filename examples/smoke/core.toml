@@ -1,0 +1,8 @@
+[package]
+name = "smoke"
+version = "0.1.0"
+
+# "./"-prefixed path deps are used in place (no clone, no tags needed),
+# so this always builds against the current working tree.
+[dependencies]
+core-dns = { path = "./../.." }
