@@ -1,6 +1,6 @@
 // Resolve a host name and print its IPv4 addresses.
-// This is a standalone consumer project: from this directory run
-//   core build && ./smoke example.com
+// This is a standalone consumer project from this directory run
+// core build && ./smoke example.com
 import process
 import dns
 import dnsip
