@@ -23,6 +23,8 @@ jobs:
       - name: Build the smoke example
         run: |
           cd examples/smoke
+          core install "$GITHUB_WORKSPACE"
+          core list
           core build
 
       # Live DNS lookup against the real network. Allowed to fail: CI

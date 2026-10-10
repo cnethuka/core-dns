@@ -55,10 +55,11 @@ your next `core build`, nothing to reinstall.
 
 ```console
 cd core-dns
-core test                        # offline unit tests
+core test                            # offline unit tests
 cd examples/smoke
-core build                       # builds the smoke consumer against the working tree
-./smoke example.com              # live lookup, should print IPv4 addresses
+core install "$PWD/../.."            # point the smoke consumer at this checkout
+core build
+./smoke example.com                  # live lookup, should print IPv4 addresses
 ```
 
 ## Uninstalling

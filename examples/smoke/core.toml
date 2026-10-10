@@ -2,7 +2,8 @@
 name = "smoke"
 version = "0.1.0"
 
-# "./"-prefixed path deps are used in place (no clone, no tags needed),
-# so this always builds against the current working tree.
+# Standalone consumer project. Point it at a core-dns checkout first:
+#   core install /path/to/core-dns      (or: core install github.com/cnethuka/core-dns)
+# then:
+#   core build && ./smoke example.com
 [dependencies]
-core-dns = { path = "./../.." }

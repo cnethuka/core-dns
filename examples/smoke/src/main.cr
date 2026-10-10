@@ -1,5 +1,5 @@
 // Resolve a host name and print its IPv4 addresses.
-// This is a standalone consumer project from this directory run
+// Standalone consumer project: core install <core-dns checkout>, then
 // core build && ./smoke example.com
 import process
 import dns
